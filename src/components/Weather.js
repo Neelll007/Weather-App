@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./weather.css";
 import "./DisplayWeather";
 import DisplayWeather from "./DisplayWeather";
@@ -31,7 +31,7 @@ function Weather() {
 
   async function weatherData(e) {
     e.preventDefault();
-    if (form.city == "") {
+    if (form.city === "") {
       alert("Enter City and Country first:");
     } else {
       const data = await fetch(
@@ -49,10 +49,10 @@ function Weather() {
     let name = e.target.name;
     let value = e.target.value;
 
-    if (name == "city") {
+    if (name === "city") {
       setForm({ ...form, city: value });
     }
-    if (name == "country") {
+    if (name === "country") {
       setForm({ ...form, country: value });
     }
     console.log(form.city, form.country);
@@ -83,7 +83,7 @@ function Weather() {
           </button>
         </form>
 
-        {weather.data != undefined ? (
+        {weather.data !== undefined ? (
           <div>
             <DisplayWeather data={weather.data} />
           </div>
